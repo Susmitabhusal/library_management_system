@@ -5,7 +5,6 @@ from tkinter import messagebox
 import sqlite3
 from ConnectDatabase import DB_FILE
 
-
 class AddDetails():
     def bookRegister(self):
         DB_FILE = 'Library.db'
@@ -36,13 +35,13 @@ class AddDetails():
     def addBook(self):
         global bookInfo1, bookInfo2, bookInfo3, bookInfo4, Canvas1, con, cur, bookTable, root
         sql = """
-               CREATE TABLE IF NOT EXISTS tbl_Books(
-                   bid INTEGER PRIMARY KEY,
-                   Title Text NOT NULL,
-                   Author Text NOT NULL,
-                   Status Text NOT NULL 
-               );
-           """
+                   CREATE TABLE IF NOT EXISTS tbl_Books(
+                       bid INTEGER PRIMARY KEY,
+                       Title Text NOT NULL,
+                       Author Text NOT NULL,
+                       Status Text NOT NULL 
+                   );
+               """
         try:
             conn = sqlite3.connect(DB_FILE)
             cursor = conn.cursor()
@@ -66,8 +65,8 @@ class AddDetails():
         conn = sqlite3.connect(DB_FILE)
         cur = conn.cursor()
 
-        # Enter Table Names here
-       # bookTable = "books"  # Book Table
+            # Enter Table Names here
+           # bookTable = "books"  # Book Table
 
         Canvas1 = Canvas(root)
 
@@ -83,7 +82,7 @@ class AddDetails():
         labelFrame = Frame(root, bg='black')
         labelFrame.place(relx=0.1, rely=0.4, relwidth=0.8, relheight=0.4)
 
-        # Book ID
+            # Book ID
         lb1 = Label(labelFrame, text="Book ID : ", bg='black', fg='white')
         lb1.place(relx=0.05, rely=0.2, relheight=0.08)
 
@@ -104,14 +103,14 @@ class AddDetails():
         bookInfo3 = Entry(labelFrame)
         bookInfo3.place(relx=0.3, rely=0.50, relwidth=0.62, relheight=0.08)
 
-        # Book Status
+            # Book Status
         lb4 = Label(labelFrame, text="Status(Avail/issued) : ", bg='black', fg='white')
         lb4.place(relx=0.05, rely=0.65, relheight=0.08)
 
         bookInfo4 = Entry(labelFrame)
         bookInfo4.place(relx=0.3, rely=0.65, relwidth=0.62, relheight=0.08)
 
-        # Submit Button
+            # Submit Button
         SubmitBtn = Button(root, text="SUBMIT", bg='#f7f1e3', fg='black', command=self.bookRegister)
         SubmitBtn.place(relx=0.28, rely=0.9, relwidth=0.18, relheight=0.08)
 
